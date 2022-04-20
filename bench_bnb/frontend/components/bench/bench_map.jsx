@@ -1,11 +1,13 @@
 import React from "react";
 import MarkerManager from "../../util/marker_manager";
+import { withRouter } from "react-router-dom";
 
-export default class BenchMap extends React.Component {
+class BenchMap extends React.Component {
     constructor(props) {
         super(props);
 
         this.getBounds = this.getBounds.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -20,6 +22,7 @@ export default class BenchMap extends React.Component {
         this.markerManager.updateMarkers(this.props.benches);
 
         this.map.addListener('idle', this.getBounds)
+        this.map.addListener('click', this.handleClick)
     }
 
     componentDidUpdate() {
@@ -38,9 +41,18 @@ export default class BenchMap extends React.Component {
         this.props.updateBounds(updatedBounds);
     }
 
+    handleClick(e) {
+        this.props.history.push({
+            pathname: "benches/new",
+            search: `lat=${e.latLng.lat()}&lng=${e.latLng.lng()}`
+        });
+    }
+
     render() {
         return (
             <div id="map-container" ref={map => this.mapNode = map}></div>
         )
     }
 }
+
+export default withRouter(BenchMap);
