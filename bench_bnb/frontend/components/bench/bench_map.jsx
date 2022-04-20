@@ -38,7 +38,7 @@ class BenchMap extends React.Component {
             "southWest": {"lat": southWest.lat().toString(), "lng": southWest.lng().toString()}
         }
 
-        this.props.updateBounds(updatedBounds);
+        this.props.updateFilter("bounds", updatedBounds);
     }
 
     handleClick(e) {

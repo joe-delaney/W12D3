@@ -5,7 +5,7 @@ export default class BenchForm extends React.Component {
         super(props);
         this.state = {
             description: '',
-            seating: 0,
+            seating: 1,
             lat: this.props.lat,
             lng: this.props.lng
         }
@@ -25,7 +25,7 @@ export default class BenchForm extends React.Component {
         console.log(this.state);
         this.setState({
             description: '',
-            seating: 0,
+            seating: 1,
             lat: '',
             lng: ''
         })
@@ -40,7 +40,7 @@ export default class BenchForm extends React.Component {
                     <input type="text" value={this.state.description} onChange={this.handleInput('description')} />
                 </label>
                 <label> Number of Seats
-                    <input type="number" value={this.state.seating} onChange={this.handleInput('seating')} />
+                    <input type="number" value={this.state.seating} onChange={this.handleInput('seating')} min="1" />
                 </label>
                 <label> Latitude
                     <input type="text" value={this.state.lat} onChange={this.handleInput('lat')} />

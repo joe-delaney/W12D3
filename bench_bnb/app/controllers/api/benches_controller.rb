@@ -1,7 +1,7 @@
 class Api::BenchesController < ApplicationController
     skip_before_action :verify_authenticity_token
     def index 
-        @benches = Bench.in_bounds(params[:bounds]) 
+        @benches = Bench.in_bounds(params[:bounds], params[:maxSeating], params[:minSeating]) 
         render :index
     end
 
@@ -17,6 +17,6 @@ class Api::BenchesController < ApplicationController
 
     private
     def bench_params 
-        params.require(:bench).permit(:description, :seating, :lat, :lng)
+        params.require(:bench).permit(:description, :seating, :lat, :lng, :maxSeating, :minSeating)
     end
 end
