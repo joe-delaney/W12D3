@@ -4,7 +4,6 @@ const _nullState = {
   id: null
 }
 
-
 export const SessionReducer = (state = _nullState, action) => {
   Object.freeze(state);
 

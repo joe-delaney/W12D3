@@ -4,6 +4,8 @@ import MarkerManager from "../../util/marker_manager";
 export default class BenchMap extends React.Component {
     constructor(props) {
         super(props);
+
+        this.getBounds = this.getBounds.bind(this);
     }
 
     componentDidMount() {
@@ -16,10 +18,24 @@ export default class BenchMap extends React.Component {
 
         this.markerManager = new MarkerManager(this.map);
         this.markerManager.updateMarkers(this.props.benches);
+
+        this.map.addListener('idle', this.getBounds)
     }
 
     componentDidUpdate() {
         this.markerManager.updateMarkers(this.props.benches);
+    }
+
+    getBounds() {
+        let bounds = this.map.getBounds();
+        let northEast = bounds.getNorthEast();
+        let southWest = bounds.getSouthWest();
+        let updatedBounds = {
+            "northEast": {"lat": northEast.lat().toString(), "lng": northEast.lng().toString()}, 
+            "southWest": {"lat": southWest.lat().toString(), "lng": southWest.lng().toString()}
+        }
+
+        this.props.updateBounds(updatedBounds);
     }
 
     render() {

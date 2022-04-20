@@ -14,6 +14,11 @@
  *= require_self
  */
 
+/* body {
+    background-color: lightcoral;
+    color: white;
+} */
+
 .top-nav-bar {
     display: flex;
     justify-content: space-between;
