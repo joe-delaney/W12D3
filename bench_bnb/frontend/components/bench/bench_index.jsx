@@ -1,8 +1,9 @@
-import { BenchIndexItem } from "./bench_index_item";
+import BenchIndexItem from "./bench_index_item";
 import React from "react";
 
 class BenchIndex extends React.Component {
     componentDidMount() {
+        
     }
 
     render() {
