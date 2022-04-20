@@ -2,17 +2,11 @@ import React from "react";
 import BenchMap from "./bench_map";
 import BenchIndex from "./bench_index"
 
-export default class Search extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const Search = ({benches, fetchBenches}) => (
+        <div>
+            <BenchMap benches={benches}/>
+            <BenchIndex benches={benches} fetchBenches={fetchBenches}/>
+        </div>
+)
 
-    render() {
-        return (
-            <div>
-                <BenchMap />
-                <BenchIndex benches={this.props.benches} fetchBenches={this.props.fetchBenches}/>
-            </div>
-        )
-    }
-}
+export default Search;
