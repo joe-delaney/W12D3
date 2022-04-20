@@ -14,7 +14,7 @@ class Bench < ApplicationRecord
         north = bounds["northEast"]["lng"].to_f
         south = bounds["southWest"]["lng"].to_f
 
-        benches = Bench.where(lat: east..west, lng: north..south)
+        benches = Bench.where(lat: west..east, lng: south..north)
         benches
     end
 end

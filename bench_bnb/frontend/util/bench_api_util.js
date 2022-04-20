@@ -3,6 +3,6 @@ export const fetchBenches = (bounds) => {
         method: 'GET',
         url: '/api/benches',
         error: (err) => console.log(err),
-        data: {bounds}
+        data: bounds
     })
 }

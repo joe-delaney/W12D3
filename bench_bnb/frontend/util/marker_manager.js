@@ -8,9 +8,17 @@ export default class MarkerManager {
     }
 
     updateMarkers(benches) {
+        const benchesObject = {}
         benches.forEach((bench) => {
             this.createMarkerFromBench(bench);
+            benchesObject[bench.id] = bench;
         })
+
+        for(let benchId in this.markers) {
+            if(!benchesObject[benchId]) {
+                this.removeMarker(this.markers[benchId], benchId);
+            }
+        }
     }
 
     createMarkerFromBench(bench) {
@@ -23,5 +31,10 @@ export default class MarkerManager {
             });
             this.markers[bench.id] = marker;
         }   
+    }
+
+    removeMarker(marker, benchId) {
+        marker.setMap(null);
+        delete this.markers[benchId];
     }
 }
