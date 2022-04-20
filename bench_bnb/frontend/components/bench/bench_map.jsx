@@ -1,4 +1,5 @@
 import React from "react";
+import MarkerManager from "../../util/marker_manager";
 
 export default class BenchMap extends React.Component {
     constructor(props) {
@@ -12,6 +13,13 @@ export default class BenchMap extends React.Component {
             zoom: 13
         };
         this.map = new google.maps.Map(this.mapNode, mapOptions);
+
+        this.markerManager = new MarkerManager(this.map);
+        this.markerManager.updateMarkers(this.props.benches);
+    }
+
+    componentDidUpdate() {
+        this.markerManager.updateMarkers(this.props.benches);
     }
 
     render() {

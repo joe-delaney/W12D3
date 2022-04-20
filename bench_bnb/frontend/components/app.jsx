@@ -8,7 +8,7 @@ import SearchContainer from "./bench/search_container";
 
 const App = () => (
   <div>
-    <header>
+    <header className="top-nav-bar">
       <h1>Bench BnB</h1>
       <GreetingContainer />
     </header>

@@ -14,8 +14,8 @@ export default class Greeting extends React.Component {
       </div>
     ) : (
       <div>
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/signup" className="top-nav-link">Sign Up</Link>
+        <Link to="/login" className="top-nav-link">Login</Link>
       </div>
     )
 

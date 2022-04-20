@@ -17,6 +17,6 @@ u3 = User.create!(username: "joe789", password:"123456")
 
 puts "Creating benches..."
 
-b1 = Bench.create!(description: "Bench1", lat: 40.749197, lng: -73.984379)
-b1 = Bench.create!(description: "Bench2", lat: 40.749262, lng: -73.983778)
-b1 = Bench.create!(description: "Bench3", lat: 40.749156, lng: -73.986256)
+b1 = Bench.create!(description: "Bench1", lat: 40.7831, lng: -73.9712)
+b1 = Bench.create!(description: "Bench2", lat: 40.7799, lng: -73.9705)
+b1 = Bench.create!(description: "Bench3", lat: 40.7859, lng: -73.9730)
